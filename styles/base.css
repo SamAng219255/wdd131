@@ -143,6 +143,9 @@ h2 {
 	align-self: center;
 	padding-top: 44.5px;
 }
+#web-dev-resc>ul>li {
+	padding-bottom: 0.25em;
+}
 
 figure>img {
 	display: block;
