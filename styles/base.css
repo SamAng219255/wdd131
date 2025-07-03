@@ -70,6 +70,7 @@ header>nav>a:hover {
 
 main {
 	width: 60rem;
+	max-width: 60rem;
 	margin: auto;
 	display: grid;
 	gap: 1rem;
