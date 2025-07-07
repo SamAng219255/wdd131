@@ -1,0 +1,27 @@
+body {
+	font-family: "Roboto", sans-serif;
+	font-optical-sizing: auto;
+	font-weight: normal;
+	font-style: normal;
+	font-variation-settings:
+		"wdth" 100;
+}
+
+header, main, footer {
+	max-width: 640px;
+	margin: 1rem auto;
+	border: #808080 1px solid;
+	padding: 1rem;
+	background-color: #C0CCE0;
+}
+
+main {
+	display: grid;
+	grid-template-columns: 1fr;
+	gap: 1rem;
+}
+
+section {
+	padding: 0.5rem;
+	background-color: #E0E6F0;
+}
