@@ -45,7 +45,7 @@ header {
 	flex-wrap: wrap;
 }
 
-header span {
+header h1 {
 	display: inline-block;
 	width: max-content;
 	margin-left: 1rem;
@@ -100,7 +100,8 @@ main {
 	padding: 1rem;
 }
 
-main>h1 {
+main>h2 {
+	display: block;
 	grid-area: 1/1/2/2;
 	text-align: center;
 }
