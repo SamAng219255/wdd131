@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+	<link rel="stylesheet" type="text/css" href="styles/place.css">
+	<title>Washington</title>
+	<meta name="description" content="An infographic and dbasic description of Washington State.">
+	<meta name="author" content="Sam Anguiano">
+	<script defer src="scripts/getdates.js"></script>
+	<script defer src="scripts/weather.js"></script>
+</head>
+<body>
+	<header>
+		<h1>Washington State</h1>
+	</header>
+	<main>
+		<figure>
+			<picture>
+				<source srcset="images/wa_narrow.webp" media="(max-width: 500px)" width="432" height="864">
+				<img id="hero-img" src="images/wa_wide.webp" alt="" width="1728" height="864">
+				<!-- Image modified from image by Steven Pavlov. © Steven Pavlov / http://commons.wikimedia.org/wiki/User:Senapa / CC BY-SA 3.0 / https://creativecommons.org/licenses/by-sa/3.0/ -->
+			</picture>
+			<figcaption>Image modified from image by Steven Pavlov. © <a href="http://commons.wikimedia.org/wiki/User:Senapa" target="_blank">Steven Pavlov</a> / <a href="https://creativecommons.org/licenses/by-sa/3.0/" target="_blank">CC BY-SA 3.0</a></figcaption>
+		</figure>
+		<section id="place-data">
+			<h2>Data</h2>
+			<table>
+				<tr>
+					<th>Area:</th>
+					<td>71,362 sq mi</td>
+				</tr>
+				<tr>
+					<th>Population:</th>
+					<td>7,958,180</td>
+				</tr>
+				<tr>
+					<th>Capital:</th>
+					<td>Olympia</td>
+				</tr>
+				<tr>
+					<th>Time Zone:</th>
+					<td>Pacific Time, UTC-8<br>(Summer: UTC-7)</td>
+				</tr>
+				<tr>
+					<th>Highest Elevation:</th>
+					<td>14,411 ft (Mount Rainier)</td>
+				</tr>
+				<tr>
+					<th>Website:</th>
+					<td><a href="wa.gov" target="_blank">wa.gov</a></td>
+				</tr>
+			</table>
+		</section>
+		<section id="place-weather">
+			<h2>Weather</h2>
+			<table>
+				<tr>
+					<th>Temperature:</th>
+					<td id="temperature">90°</td>
+				</tr>
+				<tr>
+					<th>Condition:</th>
+					<td id="conditins">Sunny</td>
+				</tr>
+				<tr>
+					<th>Wind:</th>
+					<td id="wind">NNE 11 mph</td>
+				</tr>
+				<tr>
+					<th>Wind Chill:</th>
+					<td id="wind-chill"></td>
+				</tr>
+			</table>
+		</section>
+	</main>
+	<footer>
+		<p>&copy;<span id="currentyear"></span> ⚛ Paul "Sam" Anguiano ⚛ Washington, USA</p>
+		<p id="lastModified"></p>
+	</footer>
+</body>
+</html>

@@ -1,0 +1,138 @@
+:root {
+	--main-font: "Noto Sans", "Helvetica", "Arial", sans-serif;
+
+	--primary-background: #001010; /* 180H */
+	--primary-foreground: #80E0E0; /* 180H */
+	--secondary-background: #204030; /* 150H */
+	--secondary-foreground: #20FFE0; /* 172H */
+	--tertiary-background: #000000; /* No Hue */
+	--tertiary-foreground: #C0F0F0; /* 192H */
+
+	--primary-border: var(--primary-foreground) solid 1px;
+	--secondary-border: var(--secondary-foreground) solid 1px;
+	--tertiary-border: var(--tertiary-foreground) solid 1px;
+
+	--footer-size: 5rem;
+}
+
+* {
+	padding: 0;
+	margin: 0;
+	box-sizing: border-box;
+}
+
+ul {
+	padding: revert;
+}
+a {
+	color: var(--primary-foreground);
+}
+
+body {
+	font-family: var(--main-font);
+	min-height: 100vh;
+	background-color: var(--primary-background);
+	color: var(--primary-foreground);
+	padding-bottom: var(--footer-size);
+	position: relative;
+}
+header {
+	background-color: var(--secondary-background);
+	color: var(--secondary-foreground);
+}
+
+h1 {
+	text-align: center;
+	padding: 0.5em;
+	font-weight: bold;
+	font-size: 3rem;
+}
+
+main {
+	position: relative;
+}
+
+figure {
+	position: relative;
+}
+#hero-img {
+	width: 100%;
+	height: auto;
+}
+figcaption {
+	position: absolute;
+	font-size: 0.65rem;
+	color: var(--primary-foreground);
+	background-color: var(--primary-background);
+	padding: 0.5em;
+	bottom: 0;
+	left: 0;
+	margin: 1em;
+	opacity: 0.75;
+}
+
+section {
+	background-color: var(--primary-background);
+	color: var(--primary-foreground);
+	padding: 1rem;
+}
+#place-data {
+	position: absolute;
+	top: 1rem;
+	left: 0.5rem;
+}
+#place-weather {
+	position: absolute;
+	bottom: 1rem;
+	right: 0.5rem;
+}
+
+h2 {
+	text-align: center;
+}
+#place-weather>h2::after {
+	content: " ☀️";
+}
+
+table {
+	border-spacing: 0.5rem;
+}
+th {
+	font-weight: bold;
+	text-align: right;
+	vertical-align: top;
+}
+td {
+	text-align: left;
+	vertical-align: top;
+}
+
+footer {
+	background-color: var(--secondary-background);
+	color: var(--secondary-foreground);
+	text-align: center;
+	padding: 1rem;
+	height: var(--footer-size);
+	width: 100%;
+	position: absolute;
+	bottom: 0;
+}
+
+@media screen and (max-aspect-ratio: 1/1), screen and (max-width: 680px) {
+	#place-data, #place-weather {
+		position: initial;
+	}
+	#place-weather>h2::after {
+		content: '';
+		display: inline-block;
+		background: url("../images/sun.svg") no-repeat;
+		width: 1em;
+		height: 1em;
+		vertical-align: middle;
+		filter: invert(0.7) sepia(1) hue-rotate(130deg);
+	}
+	table {
+		width: fit-content;
+		margin: auto;
+	}
+}

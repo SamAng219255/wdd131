@@ -1,12 +1,12 @@
 :root {
 	--main-font: "Noto Sans", "Helvetica", "Arial", sans-serif;
 
-	--primary-background: #001010;
-	--primary-foreground: #80E0E0;
-	--secondary-background: #204030;
-	--secondary-foreground: #20FFE0;
-	--tertiary-background: #000000;
-	--tertiary-foreground: #C0F0F0;
+	--primary-background: #001010; /* 180H */
+	--primary-foreground: #80E0E0; /* 180H */
+	--secondary-background: #204030; /* 150H */
+	--secondary-foreground: #20FFE0; /* 172H */
+	--tertiary-background: #000000; /* No Hue */
+	--tertiary-foreground: #C0F0F0; /* 192H */
 
 	--primary-border: var(--primary-foreground) solid 1px;
 	--secondary-border: var(--secondary-foreground) solid 1px;
