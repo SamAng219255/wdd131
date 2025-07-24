@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+	<link rel="stylesheet" type="text/css" href="styles/lazyload.css">
+	<title>Lazy Loading Demonstration</title>
+	<meta name="description" content="WDD131; Sam Anguiano; Lazy Loading Learning Activity">
+	<meta name="author" content="Sam Anguiano">
+	<script defer src="scripts/lazyload.js"></script>
+	<script defer src="../scripts/getdates.js"></script>
+</head>
+<body>
+	<header>
+		
+	</header>
+	<main>
+		<h1>Image Gallery</h1>
+		<img src="https://picsum.photos/400/600/?random=1" alt="A placeholder image." loading="lazy" width="400" height="600">
+		<img src="https://picsum.photos/400/600/?random=2" alt="A placeholder image." loading="lazy" width="400" height="600">
+		<img src="https://picsum.photos/400/600/?random=3" alt="A placeholder image." loading="lazy" width="400" height="600">
+		<img src="https://picsum.photos/400/600/?random=4" alt="A placeholder image." loading="lazy" width="400" height="600">
+		<img src="https://picsum.photos/400/600/?random=5" alt="A placeholder image." loading="lazy" width="400" height="600">
+		<img src="https://picsum.photos/400/600/?random=6" alt="A placeholder image." loading="lazy" width="400" height="600">
+	</main>
+	<footer>
+		<p>&copy;<span id="currentyear"></span> ⚛ Paul "Sam" Anguiano ⚛ Washington, USA</p>
+		<p id="lastModified"></p>
+	</footer>
+</body>
+</html>

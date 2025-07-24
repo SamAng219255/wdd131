@@ -1,0 +1,25 @@
+@media screen and (min-width: 60rem) {
+	#nav-button {
+		display: none;
+	}
+	header>nav {
+		display: flex;
+		margin-top: 0;
+	}
+}
+@media screen and (min-width: 500px) {
+	main {
+		grid-template-columns: repeat(2, 1fr);
+	}
+	main>h2 {
+		grid-area: 1/1/2/3;
+	}
+}
+@media screen and (min-width: 750px) {
+	main {
+		grid-template-columns: repeat(3, 1fr);
+	}
+	main>h2 {
+		grid-area: 1/1/2/4;
+	}
+}
