@@ -128,55 +128,60 @@ const temples = [
   }
 ];
 const main = document.getElementsByTagName("main")[0];
-const album_filter = new URLSearchParams(window.location.search).get("filter");
 const h2 = document.getElementsByTagName("h2")[0];
 
-if(album_filter !== null) {
-	h2.innerText = album_filter.replace(/\w\S*/g, text => text.charAt(0).toUpperCase() + text.substring(1).toLowerCase());
-}
+const buttons = document.getElementsByClassName("filter-option");
+for(let i=0; i<buttons.length; i++) {
+	buttons[i].addEventListener("click", (e)=>{
+		document.querySelectorAll(".card").forEach((card)=>card.remove());
+		
+		const album_filter = e.target.innerText.toLowerCase();
 
-let filter_check = (temple) => {return true;};
-switch(album_filter) {
-	case "old":
-		filter_check = (temple) => {return parseInt(temple.dedicated.split(",")[0]) < 1900;};
-		break;
-	case "new":
-		filter_check = (temple) => {return parseInt(temple.dedicated.split(",")[0]) > 2000;};
-		break;
-	case "large":
-		filter_check = (temple) => {return temple.area > 90000;};
-		break;
-	case "small":
-		filter_check = (temple) => {return temple.area < 10000;};
-		break;
-}
+		h2.innerText = e.target.innerText;
 
-function addEntry(card, label, value) {
-	const entry = document.createElement("p");
-	const label_elem = document.createElement("span");
-	label_elem.classList.add("entry-label");
-	label_elem.innerText = label + ": ";
-	entry.appendChild(label_elem);
-	const value_elem = document.createElement("span");
-	value_elem.classList.add("entry-value");
-	value_elem.innerText = value;
-	entry.appendChild(value_elem);
-	card.appendChild(entry);
-}
+		let filter_check = (temple) => {return true;};
+		switch(album_filter) {
+			case "old":
+				filter_check = (temple) => {return parseInt(temple.dedicated.split(",")[0]) < 1900;};
+				break;
+			case "new":
+				filter_check = (temple) => {return parseInt(temple.dedicated.split(",")[0]) > 2000;};
+				break;
+			case "large":
+				filter_check = (temple) => {return temple.area > 90000;};
+				break;
+			case "small":
+				filter_check = (temple) => {return temple.area < 10000;};
+				break;
+		}
 
-temples.filter(filter_check).forEach((temple) => {
-	const card = document.createElement("div");
-	card.classList.add("card");
-	const temple_name = document.createElement("h2");
-	temple_name.innerText = temple.templeName;
-	card.appendChild(temple_name);
-	addEntry(card, "Location", temple.location);
-	addEntry(card, "Dedicated", temple.dedicated);
-	addEntry(card, "Size", `${temple.area} sq ft`);
-	const image = document.createElement("img");
-	image.alt = temple.templeName;
-	image.loading = "lazy";
-	image.src = temple.imageUrl;
-	card.appendChild(image);
-	main.appendChild(card);
-});
+		function addEntry(card, label, value) {
+			const entry = document.createElement("p");
+			const label_elem = document.createElement("span");
+			label_elem.classList.add("entry-label");
+			label_elem.innerText = label + ": ";
+			entry.appendChild(label_elem);
+			const value_elem = document.createElement("span");
+			value_elem.classList.add("entry-value");
+			value_elem.innerText = value;
+			entry.appendChild(value_elem);
+			card.appendChild(entry);
+		}
+		temples.filter(filter_check).forEach((temple) => {
+			const card = document.createElement("div");
+			card.classList.add("card");
+			const temple_name = document.createElement("h2");
+			temple_name.innerText = temple.templeName;
+			card.appendChild(temple_name);
+			addEntry(card, "Location", temple.location);
+			addEntry(card, "Dedicated", temple.dedicated);
+			addEntry(card, "Size", `${temple.area} sq ft`);
+			const image = document.createElement("img");
+			image.alt = temple.templeName;
+			image.loading = "lazy";
+			image.src = temple.imageUrl;
+			card.appendChild(image);
+			main.appendChild(card);
+		});
+	});
+}
