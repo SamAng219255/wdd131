@@ -24,9 +24,6 @@
 	box-sizing: border-box;
 }
 
-ul {
-	padding: revert;
-}
 a {
 	color: var(--primary-foreground);
 }
