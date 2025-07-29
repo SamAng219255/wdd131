@@ -1,0 +1,9 @@
+Subject:
+	Pathfinder (A table-top roleplaying game that branched off of Dungeons and Dragons)
+Description:
+	The site will have 3 pages.
+	The main page will contain a description of the game and list of resources.
+	There will also be a page to post groups to play together or to join those groups. (This may be divided into multiple pages to accommodate the forms and list.)
+	The last page will contain a character sheet with an automatic calculator. Characters created will be saved in localStorage. Options will be present to have multiple sheets and switch between them. The user can also delete any of them. The page will cleanly format for printing using a media query.
+Reason:
+	I play Pathfinder often and have found that these are commonly useful assets.
