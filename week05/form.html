@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" type="text/css" href="styles/form.css">
+	<title>Product Review Form</title>
+	<meta name="description" content="WDD 131 – Dynamic Web Fundamentals – Sam Anguiano; week 05, form, product review form">
+	<meta name="author" content="Sam Anguiano">
+	<script defer src="../scripts/getdates.js"></script>
+	<script defer src="scripts/form.js"></script>
+</head>
+<body>
+	<header>
+		<h1>Product Review Form</h1>
+	</header>
+	<main>
+		<form method="get" action="review.html">
+			<fieldset>
+				<legend>User Information</legend>
+				<label>
+					Name (optional)
+					<input id="user-name" type="text" name="user-name">
+				</label>
+			</fieldset>
+			<fieldset>
+				<legend>Product Information</legend>
+				<label>
+					Product Name<span class="required-mark"></span>
+					<select id="product-name" name="product-name" required>
+						<option disabled selected value="">Select a Product...</option>
+					</select>
+				</label>
+				<label>
+					Date of Installation<span class="required-mark"></span>
+					<input id="date-install" type="date" name="date" required>
+				</label>
+			</fieldset>
+			<fieldset>
+				<legend>Product Review</legend>
+				<div>
+					Overall Rating<span class="required-mark"></span>
+					<div class="stars">
+						<label><input type="radio" name="rating" value="1" required aria-label="1 star" id="one-star"><span>1 star</span></label>
+						<label><input type="radio" name="rating" value="2" required aria-label="2 stars" id="two-stars"><span>2 stars</span></label>
+						<label><input type="radio" name="rating" value="3" required aria-label="3 stars" id="three-stars"><span>3 stars</span></label>
+						<label><input type="radio" name="rating" value="4" required aria-label="4 stars" id="four-stars"><span>4 stars</span></label>
+						<label><input type="radio" name="rating" value="5" required aria-label="5 stars" id="five-stars"><span>5 stars</span></label>
+					</div>
+				</div>
+				<div>
+					Useful Features
+					<label><input type="checkbox" id="feature-parameters" name="feature-parameters"> Easy to calibrate temporal parameters</label>
+					<label><input type="checkbox" id="feature-compatible" name="feature-compatible"> Compatible with standard flux regulators</label>
+					<label><input type="checkbox" id="feature-compact" name="feature-compact"> Compact design fits in most DeLoreans</label>
+					<label><input type="checkbox" id="feature-stability" name="feature-stability"> Excellent stability during timeline shifts</label>
+					<label><input type="checkbox" id="feature-low-leakage" name="feature-low-leakage"> Low chronon leakage during extended use</label>
+				</div>
+				<label id="add-info-wrapper">
+					Additional Information
+					<textarea id="additional-info" name="additional-info" rows="4"></textarea>
+				</label>
+			</fieldset>
+			<input type="submit" value="Send My Review">
+		</form>
+	</main>
+	<footer>
+		<p>&copy;<span id="currentyear"></span> ⚛ Paul "Sam" Anguiano ⚛ Washington, USA</p>
+		<p id="lastModified"></p>
+	</footer>
+</body>
+</html>
