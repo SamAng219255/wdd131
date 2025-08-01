@@ -1,5 +1,5 @@
 :root {
-	--main-font: helvetica, arial, sans-serif;
+	--main-font: "Noto Sans", helvetica, arial, sans-serif;
 
 	--primary-background: #001010; /* 180H */
 	--primary-foreground: #80E0E0; /* 180H */
