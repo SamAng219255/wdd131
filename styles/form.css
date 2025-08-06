@@ -128,6 +128,8 @@ select {
 .stars span {
 	visibility: hidden;
 	position: absolute;
+	background-color: var(--primary-background);
+	color: var(--primary-foreground);
 }
 .stars input {
 	appearance: unset;
