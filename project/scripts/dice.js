@@ -18,16 +18,15 @@ class DieResult {
 			resultString = this.results.join(" + ");
 		}
 		else {
-			for(let i=0; i<this.results.length; i++) {
-				if(i>0)
-					resultString += " + ";
-				if(this.die.sides > 1 && this.results[i] == this.die.sides)
-					resultString += `<span class="roll-max">${this.results[i]}</span>`;
-				else if(this.die.sides > 1 && this.results[i] == 1)
-					resultString += `<span class="roll-min">${this.results[i]}</span>`;
+			let sides = this.die.sides;
+			resultString = this.results.map((result) => {
+				if(sides > 1 && result == sides)
+					return `<span class="roll-max">${result}</span>`;
+				else if(sides > 1 && result == 1)
+					return `<span class="roll-min">${result}</span>`;
 				else
-					resultString += `${this.results[i]}`;
-			}
+					return `${result}`;
+			}).join(" + ");
 		}
 		if(this.results.length == 1)
 			return `${this.die.toString(noHtml)} (${resultString})`;
@@ -209,15 +208,8 @@ class Dice {
 	}
 
 	toString(noHtml) {
-		let diceString = "";
-		for(let i=0; i<this.dice.length; i++) {
-			if(i > 0)
-				diceString += ", ";
-			diceString += this.dice[i];
-		}
-		if(diceString.length > 0)
-			diceString += ", ";
-		return `${diceString}${this.modifier >= 0 ? "+" : ""}${this.modifier}`;
+		let diceString = this.dice.join(", ");
+		return `${diceString}${diceString.length > 0 ? ", " : ""}${this.modifier >= 0 ? "+" : ""}${this.modifier}`;
 	}
 
 	copy() {
