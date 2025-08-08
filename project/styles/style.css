@@ -1,0 +1,171 @@
+* {
+	padding: 0;
+	margin: 0;
+	box-sizing: border-box;
+}
+
+a {
+	color: inherit;
+}
+a:hover {
+	filter: invert(1) hue-rotate(180deg) contrast(75%) brightness(120%);
+}
+
+body {
+	font-family: var(--main-font);
+	letter-spacing: 0.01em;
+	min-height: 100vh;
+	background-color: var(--primary-background);
+	color: var(--primary-foreground);
+	padding-bottom: var(--footer-size);
+	position: relative;
+}
+header {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	flex-wrap: wrap;
+}
+main {
+	max-width: min(60rem, calc(100vw - 2rem));
+	margin: auto;
+	display: grid;
+	grid-template-columns: 2fr 1fr;
+	gap: 1rem;
+}
+footer {
+	background-color: var(--secondary-background);
+	color: var(--secondary-foreground);
+	text-align: center;
+	padding: 1rem;
+	height: var(--footer-size);
+	width: 100%;
+	position: absolute;
+	bottom: 0;
+}
+
+h1 {
+	display: block;
+	padding: 1rem 0.5rem 1rem 2rem;
+	font-size: 2rem;
+	font-weight: bold;
+}
+
+nav {
+	padding: 1rem 2rem 1rem 0.5rem;
+	display: flex;
+	gap: 0.5rem;
+}
+nav a {
+	display: block;
+	padding: 0.5rem;
+	background-color: var(--secondary-background);
+	color: var(--secondary-foreground);
+	text-decoration: none;
+}
+nav a:hover {
+	filter: brightness(125%) contrast(75%);
+}
+nav a:active {
+	filter: brightness(150%) contrast(66%);
+}
+#nav-button {
+	display: none;
+}
+
+section {
+	background-color: var(--secondary-background);
+	color: var(--secondary-foreground);
+	border: var(--secondary-border);
+	display: block;
+	padding: 0.5rem;
+	margin: 1rem 0;
+}
+h2 {
+	font-weight: bold;
+	font-size: 1.25rem;
+	text-align: left;
+	margin-bottom: 1rem;
+}
+
+p {
+	margin-bottom: 1rem;
+}
+
+section img {
+	float: right;
+	width: 200px;
+	height: auto;
+}
+
+#resource-list {
+	list-style-type: none;
+}
+#resource-list li {
+	text-indent: -1rem;
+	margin: 0 0 1rem 1rem;
+}
+#resource-list span::before {
+	content: " — ";
+}
+
+@media screen and (max-width: 700px) {
+	main {
+		grid-template-columns: 1fr;
+		gap: 0;
+	}
+
+	h1 {
+		padding: 1rem 2rem;
+	}
+
+	nav {
+		display: none;
+		flex-direction: column;
+		width: 100%;
+		padding: 1rem 2rem;
+	}
+	nav.open {
+		display: flex;
+	}
+
+	#nav-button {
+		display: block;
+		font-size: 2rem;
+		border: none;
+		background-color: unset;
+		color: inherit;
+		width: 44px;
+		height: 44px;
+		margin-right: 2rem;
+	}
+	#nav-button::before {
+		content: "☰";
+	}
+	#nav-button.open::before {
+		content: "☓";
+	}
+}
+@media screen and (max-width: 400px) {
+	header {
+		padding-top: calc(1rem + 44px);
+	}
+
+	h1 {
+		width: 100%;
+		text-align: center;
+		order: 1;
+	}
+
+	#nav-button {
+		position: absolute;
+		top: 1rem;
+		right: 0rem;
+	}
+
+	section img {
+		display: block;
+		float: unset;
+		margin: auto;
+	}
+}

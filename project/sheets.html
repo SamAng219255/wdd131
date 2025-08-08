@@ -1,0 +1,712 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" type="text/css" href="styles/variables.css">
+	<link rel="stylesheet" type="text/css" href="styles/sheets.css">
+	<link rel="stylesheet" type="text/css" href="styles/sheets-pages.css">
+	<title>Mordan's Tools</title>
+	<meta name="description" content="name: Mordan's Tools, system: Pathfinder / 1st Edition / 1E / 1st Ed, content: [description of system, list of tools, character sheets]">
+	<meta name="author" content="Sam Anguiano">
+	<script defer src="../scripts/getdates.js"></script>
+	<script defer src="scripts/menu.js"></script>
+	<script defer src="scripts/sheets.js"></script>
+</head>
+<body>
+	<header>
+		<h1>Mordan's Tools</h1>
+		<button id="nav-button" aria-label="Navigation Menu, Closed"></button>
+		<nav>
+			<a href="./">Home</a>
+			<a href="./groups.html">Group Sign Up</a>
+			<a href="./sheets.html">Character Sheets</a>
+		</nav>
+	</header>
+	<main>
+		<div id="controls">
+			<button id="show-controls" aria-label="Character Sheet Controls, Closed">Show Controls</button>
+			<div>
+				<p>Load Character</p>
+				<select id="selected-character" aria-label="Selected Character Sheet" disabled>
+					<option value="">No Saved Characters</option>
+				</select>
+				<button id="load-button" title="You have no characters to load." aria-label="Load Selected Character Sheet" disabled>Load Character</button>
+				<p class="note">Characters are automatically saved as you edit them.</p>
+			</div>
+			<div>
+				<p>Create New Character</p>
+				<button id="create-new-button">Create New Character</button>
+			</div>
+			<div>
+				<p>Print</p>
+				<button id="print-button">Print Current Character</button>
+			</div>
+			<div>
+				<p>Delete</p>
+				<button id="delete-button">Delete Current Character</button>
+			</div>
+		</div>
+		<div class="page">
+			<section id="section-vital-info">
+				<label><input type="text" id="char-name">Character Name</label>
+				<label><input type="text" id="player-name">Player Name</label>
+				<label><input type="text" id="char-race">Race</label>
+				<label><input type="text" id="char-size">Size</label>
+				<label><input type="text" id="char-gender">Gender</label>
+				<label><input type="text" id="char-age">Age</label>
+				<label><input type="text" id="char-height">Height</label>
+				<label><input type="text" id="char-weight">Weight</label>
+				<label><input type="text" id="char-align">Alignment</label>
+				<label><input type="text" id="char-deity">Deity</label>
+				<label>Languages: <input type="text" id="char-lang"></label>
+			</section>
+			<img src="images/pathfinder-logo.webp" alt="Pathfinder Logo" id="section-logo">
+			<section id="section-ability-scores">
+				<table>
+					<thead>
+						<tr>
+							<th>Score</th>
+							<th>Total</th>
+							<th>Mod</th>
+							<th>Base</th>
+							<th>Racial</th>
+							<th>Misc</th>
+							<th>Cost</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<th>Str</th>
+							<td></td>
+							<td></td>
+							<td><input type="number" id="str-base"></td>
+							<td><input type="number" id="str-race"></td>
+							<td><input type="number" id="str-misc"></td>
+							<td></td>
+						</tr>
+						<tr>
+							<th>Dex</th>
+							<td></td>
+							<td></td>
+							<td><input type="number" id="dex-base"></td>
+							<td><input type="number" id="dex-race"></td>
+							<td><input type="number" id="dex-misc"></td>
+							<td></td>
+						</tr>
+						<tr>
+							<th>Con</th>
+							<td></td>
+							<td></td>
+							<td><input type="number" id="con-base"></td>
+							<td><input type="number" id="con-race"></td>
+							<td><input type="number" id="con-misc"></td>
+							<td></td>
+						</tr>
+						<tr>
+							<th>Int</th>
+							<td></td>
+							<td></td>
+							<td><input type="number" id="int-base"></td>
+							<td><input type="number" id="int-race"></td>
+							<td><input type="number" id="int-misc"></td>
+							<td></td>
+						</tr>
+						<tr>
+							<th>Wis</th>
+							<td></td>
+							<td></td>
+							<td><input type="number" id="wis-base"></td>
+							<td><input type="number" id="wis-race"></td>
+							<td><input type="number" id="wis-misc"></td>
+							<td></td>
+						</tr>
+						<tr>
+							<th>Cha</th>
+							<td></td>
+							<td></td>
+							<td><input type="number" id="cha-base"></td>
+							<td><input type="number" id="cha-race"></td>
+							<td><input type="number" id="cha-misc"></td>
+							<td></td>
+						</tr>
+					</tbody>
+				</table>
+			</section>
+			<section id="section-class-info">
+				<table>
+					<thead>
+						<tr>
+							<th class="fill-space" colspan="2">HP</th>
+							<th>Lvl</th>
+							<th>Class Name</th>
+							<th>HD</th>
+							<th>HP</th>
+							<th>BAB</th>
+							<th>Fort</th>
+							<th>Ref</th>
+							<th>Will</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<td colspan="2" rowspan="5"><input type="number" id="hp"></td>
+							<td><input type="number" id="class-1-level"></td>
+							<td><input type="text"   id="class-1-name"></td>
+							<td><input type="number" id="class-1-hd"></td>
+							<td><input type="number" id="class-1-hp"></td>
+							<td><input type="number" id="class-1-bab"></td>
+							<td><input type="number" id="class-1-fort"></td>
+							<td><input type="number" id="class-1-ref"></td>
+							<td><input type="number" id="class-1-will"></td>
+						</tr>
+						<tr>
+							<td><input type="number" id="class-2-level"></td>
+							<td><input type="text"   id="class-2-name"></td>
+							<td><input type="number" id="class-2-hd"></td>
+							<td><input type="number" id="class-2-hp"></td>
+							<td><input type="number" id="class-2-bab"></td>
+							<td><input type="number" id="class-2-fort"></td>
+							<td><input type="number" id="class-2-ref"></td>
+							<td><input type="number" id="class-2-will"></td>
+						</tr>
+						<tr>
+							<td><input type="number" id="class-3-level"></td>
+							<td><input type="text"   id="class-3-name"></td>
+							<td><input type="number" id="class-3-hd"></td>
+							<td><input type="number" id="class-3-hp"></td>
+							<td><input type="number" id="class-3-bab"></td>
+							<td><input type="number" id="class-3-fort"></td>
+							<td><input type="number" id="class-3-ref"></td>
+							<td><input type="number" id="class-3-will"></td>
+						</tr>
+						<tr>
+							<td><input type="number" id="class-4-level"></td>
+							<td><input type="text"   id="class-4-name"></td>
+							<td><input type="number" id="class-4-hd"></td>
+							<td><input type="number" id="class-4-hp"></td>
+							<td><input type="number" id="class-4-bab"></td>
+							<td><input type="number" id="class-4-fort"></td>
+							<td><input type="number" id="class-4-ref"></td>
+							<td><input type="number" id="class-4-will"></td>
+						</tr>
+						<tr>
+							<td><input type="number" id="class-5-level"></td>
+							<td><input type="text"   id="class-5-name"></td>
+							<td><input type="number" id="class-5-hd"></td>
+							<td><input type="number" id="class-5-hp"></td>
+							<td><input type="number" id="class-5-bab"></td>
+							<td><input type="number" id="class-5-fort"></td>
+							<td><input type="number" id="class-5-ref"></td>
+							<td><input type="number" id="class-5-will"></td>
+						</tr>
+						<tr>
+							<th>Max HP</th>
+							<td></td>
+							<td></td>
+							<th colspan="2">Total</th>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+						</tr>
+					</tbody>
+				</table>
+			</section>
+			<section id="section-atk-def">
+				
+			</section>
+			<section id="section-skills">
+				<table class="medium-small">
+					<thead>
+						<tr class="small">
+							<th colspan="3">Skill</th>
+							<th>Total</th>
+							<th>Ability</th>
+							<th>Ranks</th>
+							<th>Trained</th>
+							<th>Misc</th>
+						</tr>
+					</thead>
+					<tbody class="alternate">
+						<tr>
+							<td class="merge no-min"><input type="checkbox" id="skills-trained-acrobatics"></td>
+							<td class="merge">Acrobatics</td>
+							<td class="right-align">Dex</td>
+							<td></td>
+							<td></td>
+							<td><input type="number" id="skill-ranks-acrobatics"></td>
+							<td></td>
+							<td><input type="number" id="skill-misc-acrobatics"></td>
+						</tr>
+						<tr>
+							<td class="merge no-min"><input type="checkbox" id="skills-trained-appraise"></td>
+							<td class="merge">Appraise</td>
+							<td class="right-align">Int</td>
+							<td></td>
+							<td></td>
+							<td><input type="number" id="skill-ranks-appraise"></td>
+							<td></td>
+							<td><input type="number" id="skill-misc-appraise"></td>
+						</tr>
+						<tr>
+							<td class="merge no-min"><input type="checkbox" id="skills-trained-bluff"></td>
+							<td class="merge">Bluff</td>
+							<td class="right-align">Cha</td>
+							<td></td>
+							<td></td>
+							<td><input type="number" id="skill-ranks-bluff"></td>
+							<td></td>
+							<td><input type="number" id="skill-misc-bluff"></td>
+						</tr>
+						<tr>
+							<td class="merge no-min"><input type="checkbox" id="skills-trained-climb"></td>
+							<td class="merge">Climb</td>
+							<td class="right-align">Str</td>
+							<td></td>
+							<td></td>
+							<td><input type="number" id="skill-ranks-climb"></td>
+							<td></td>
+							<td><input type="number" id="skill-misc-climb"></td>
+						</tr>
+						<tr>
+							<td class="merge no-min"><input type="checkbox" id="skills-trained-craft"></td>
+							<td class="merge">Craft</td>
+							<td class="right-align">Int</td>
+							<td></td>
+							<td></td>
+							<td><input type="number" id="skill-ranks-craft"></td>
+							<td></td>
+							<td><input type="number" id="skill-misc-craft"></td>
+						</tr>
+						<tr>
+							<td class="merge no-min"><input type="checkbox" id="skills-trained-diplomacy"></td>
+							<td class="merge">Diplomacy</td>
+							<td class="right-align">Cha</td>
+							<td></td>
+							<td></td>
+							<td><input type="number" id="skill-ranks-diplomacy"></td>
+							<td></td>
+							<td><input type="number" id="skill-misc-diplomacy"></td>
+						</tr>
+						<tr>
+							<td class="merge no-min"><input type="checkbox" id="skills-trained-disable-device"></td>
+							<td class="merge">Disable Device</td>
+							<td class="right-align">Dex</td>
+							<td></td>
+							<td></td>
+							<td><input type="number" id="skill-ranks-disable-device"></td>
+							<td></td>
+							<td><input type="number" id="skill-misc-disable-device"></td>
+						</tr>
+						<tr>
+							<td class="merge no-min"><input type="checkbox" id="skills-trained-disguise"></td>
+							<td class="merge">Disguise</td>
+							<td class="right-align">Cha</td>
+							<td></td>
+							<td></td>
+							<td><input type="number" id="skill-ranks-disguise"></td>
+							<td></td>
+							<td><input type="number" id="skill-misc-disguise"></td>
+						</tr>
+						<tr>
+							<td class="merge no-min"><input type="checkbox" id="skills-trained-escape-artist"></td>
+							<td class="merge">Escape Artist</td>
+							<td class="right-align">Dex</td>
+							<td></td>
+							<td></td>
+							<td><input type="number" id="skill-ranks-escape-artist"></td>
+							<td></td>
+							<td><input type="number" id="skill-misc-escape-artist"></td>
+						</tr>
+						<tr>
+							<td class="merge no-min"><input type="checkbox" id="skills-trained-fly"></td>
+							<td class="merge">Fly</td>
+							<td class="right-align">Dex</td>
+							<td></td>
+							<td></td>
+							<td><input type="number" id="skill-ranks-fly"></td>
+							<td></td>
+							<td><input type="number" id="skill-misc-fly"></td>
+						</tr>
+						<tr>
+							<td class="merge no-min"><input type="checkbox" id="skills-trained-handle-animal"></td>
+							<td class="merge">Handle Animal</td>
+							<td class="right-align">Cha</td>
+							<td></td>
+							<td></td>
+							<td><input type="number" id="skill-ranks-handle-animal"></td>
+							<td></td>
+							<td><input type="number" id="skill-misc-handle-animal"></td>
+						</tr>
+						<tr>
+							<td class="merge no-min"><input type="checkbox" id="skills-trained-heal"></td>
+							<td class="merge">Heal</td>
+							<td class="right-align">Wis</td>
+							<td></td>
+							<td></td>
+							<td><input type="number" id="skill-ranks-heal"></td>
+							<td></td>
+							<td><input type="number" id="skill-misc-heal"></td>
+						</tr>
+						<tr>
+							<td class="merge no-min"><input type="checkbox" id="skills-trained-intimidate"></td>
+							<td class="merge">Intimidate</td>
+							<td class="right-align">Cha</td>
+							<td></td>
+							<td></td>
+							<td><input type="number" id="skill-ranks-intimidate"></td>
+							<td></td>
+							<td><input type="number" id="skill-misc-intimidate"></td>
+						</tr>
+						<tr>
+							<td class="merge no-min"><input type="checkbox" id="skills-trained-know-arcana"></td>
+							<td class="merge">Knowledge (Arcana)</td>
+							<td class="right-align">Int</td>
+							<td></td>
+							<td></td>
+							<td><input type="number" id="skill-ranks-know-arcana"></td>
+							<td></td>
+							<td><input type="number" id="skill-misc-know-arcana"></td>
+						</tr>
+						<tr>
+							<td class="merge no-min"><input type="checkbox" id="skills-trained-know-dungeoneering"></td>
+							<td class="merge">Knowledge (Dungeoneering)</td>
+							<td class="right-align">Int</td>
+							<td></td>
+							<td></td>
+							<td><input type="number" id="skill-ranks-know-dungeoneering"></td>
+							<td></td>
+							<td><input type="number" id="skill-misc-know-dungeoneering"></td>
+						</tr>
+						<tr>
+							<td class="merge no-min"><input type="checkbox" id="skills-trained-know-engineering"></td>
+							<td class="merge">Knowledge (Engineering)</td>
+							<td class="right-align">Int</td>
+							<td></td>
+							<td></td>
+							<td><input type="number" id="skill-ranks-know-engineering"></td>
+							<td></td>
+							<td><input type="number" id="skill-misc-know-engineering"></td>
+						</tr>
+						<tr>
+							<td class="merge no-min"><input type="checkbox" id="skills-trained-know-geography"></td>
+							<td class="merge">Knowledge (Geography)</td>
+							<td class="right-align">Int</td>
+							<td></td>
+							<td></td>
+							<td><input type="number" id="skill-ranks-know-geography"></td>
+							<td></td>
+							<td><input type="number" id="skill-misc-know-geography"></td>
+						</tr>
+						<tr>
+							<td class="merge no-min"><input type="checkbox" id="skills-trained-know-history"></td>
+							<td class="merge">Knowledge (History)</td>
+							<td class="right-align">Int</td>
+							<td></td>
+							<td></td>
+							<td><input type="number" id="skill-ranks-know-history"></td>
+							<td></td>
+							<td><input type="number" id="skill-misc-know-history"></td>
+						</tr>
+						<tr>
+							<td class="merge no-min"><input type="checkbox" id="skills-trained-know-local"></td>
+							<td class="merge">Knowledge (Local)</td>
+							<td class="right-align">Int</td>
+							<td></td>
+							<td></td>
+							<td><input type="number" id="skill-ranks-know-local"></td>
+							<td></td>
+							<td><input type="number" id="skill-misc-know-local"></td>
+						</tr>
+						<tr>
+							<td class="merge no-min"><input type="checkbox" id="skills-trained-know-nature"></td>
+							<td class="merge">Knowledge (Nature)</td>
+							<td class="right-align">Int</td>
+							<td></td>
+							<td></td>
+							<td><input type="number" id="skill-ranks-know-nature"></td>
+							<td></td>
+							<td><input type="number" id="skill-misc-know-nature"></td>
+						</tr>
+						<tr>
+							<td class="merge no-min"><input type="checkbox" id="skills-trained-know-nobility"></td>
+							<td class="merge">Knowledge (Nobility)</td>
+							<td class="right-align">Int</td>
+							<td></td>
+							<td></td>
+							<td><input type="number" id="skill-ranks-know-nobility"></td>
+							<td></td>
+							<td><input type="number" id="skill-misc-know-nobility"></td>
+						</tr>
+						<tr>
+							<td class="merge no-min"><input type="checkbox" id="skills-trained-know-planes"></td>
+							<td class="merge">Knowledge (Planes)</td>
+							<td class="right-align">Int</td>
+							<td></td>
+							<td></td>
+							<td><input type="number" id="skill-ranks-know-planes"></td>
+							<td></td>
+							<td><input type="number" id="skill-misc-know-planes"></td>
+						</tr>
+						<tr>
+							<td class="merge no-min"><input type="checkbox" id="skills-trained-know-religion"></td>
+							<td class="merge">Knowledge (Religion)</td>
+							<td class="right-align">Int</td>
+							<td></td>
+							<td></td>
+							<td><input type="number" id="skill-ranks-know-religion"></td>
+							<td></td>
+							<td><input type="number" id="skill-misc-know-religion"></td>
+						</tr>
+						<tr>
+							<td class="merge no-min"><input type="checkbox" id="skills-trained-linguistics"></td>
+							<td class="merge">Linguistics</td>
+							<td class="right-align">Int</td>
+							<td></td>
+							<td></td>
+							<td><input type="number" id="skill-ranks-linguistics"></td>
+							<td></td>
+							<td><input type="number" id="skill-misc-linguistics"></td>
+						</tr>
+						<tr>
+							<td class="merge no-min"><input type="checkbox" id="skills-trained-perception"></td>
+							<td class="merge">Perception</td>
+							<td class="right-align">Wis</td>
+							<td></td>
+							<td></td>
+							<td><input type="number" id="skill-ranks-perception"></td>
+							<td></td>
+							<td><input type="number" id="skill-misc-perception"></td>
+						</tr>
+						<tr>
+							<td class="merge no-min"><input type="checkbox" id="skills-trained-perform"></td>
+							<td class="merge">Perform</td>
+							<td class="right-align">Cha</td>
+							<td></td>
+							<td></td>
+							<td><input type="number" id="skill-ranks-perform"></td>
+							<td></td>
+							<td><input type="number" id="skill-misc-perform"></td>
+						</tr>
+						<tr>
+							<td class="merge no-min"><input type="checkbox" id="skills-trained-profession"></td>
+							<td class="merge">Profession</td>
+							<td class="right-align">Wis</td>
+							<td></td>
+							<td></td>
+							<td><input type="number" id="skill-ranks-profession"></td>
+							<td></td>
+							<td><input type="number" id="skill-misc-profession"></td>
+						</tr>
+						<tr>
+							<td class="merge no-min"><input type="checkbox" id="skills-trained-ride"></td>
+							<td class="merge">Ride</td>
+							<td class="right-align">Dex</td>
+							<td></td>
+							<td></td>
+							<td><input type="number" id="skill-ranks-ride"></td>
+							<td></td>
+							<td><input type="number" id="skill-misc-ride"></td>
+						</tr>
+						<tr>
+							<td class="merge no-min"><input type="checkbox" id="skills-trained-sense-motive"></td>
+							<td class="merge">Sense Motive</td>
+							<td class="right-align">Wis</td>
+							<td></td>
+							<td></td>
+							<td><input type="number" id="skill-ranks-sense-motive"></td>
+							<td></td>
+							<td><input type="number" id="skill-misc-sense-motive"></td>
+						</tr>
+						<tr>
+							<td class="merge no-min"><input type="checkbox" id="skills-trained-sleight-of-hand"></td>
+							<td class="merge">Sleight of Hand</td>
+							<td class="right-align">Dex</td>
+							<td></td>
+							<td></td>
+							<td><input type="number" id="skill-ranks-sleight-of-hand"></td>
+							<td></td>
+							<td><input type="number" id="skill-misc-sleight-of-hand"></td>
+						</tr>
+						<tr>
+							<td class="merge no-min"><input type="checkbox" id="skills-trained-spellcraft"></td>
+							<td class="merge">Spellcraft</td>
+							<td class="right-align">Int</td>
+							<td></td>
+							<td></td>
+							<td><input type="number" id="skill-ranks-spellcraft"></td>
+							<td></td>
+							<td><input type="number" id="skill-misc-spellcraft"></td>
+						</tr>
+						<tr>
+							<td class="merge no-min"><input type="checkbox" id="skills-trained-stealth"></td>
+							<td class="merge">Stealth</td>
+							<td class="right-align">Dex</td>
+							<td></td>
+							<td></td>
+							<td><input type="number" id="skill-ranks-stealth"></td>
+							<td></td>
+							<td><input type="number" id="skill-misc-stealth"></td>
+						</tr>
+						<tr>
+							<td class="merge no-min"><input type="checkbox" id="skills-trained-survival"></td>
+							<td class="merge">Survival</td>
+							<td class="right-align">Wis</td>
+							<td></td>
+							<td></td>
+							<td><input type="number" id="skill-ranks-survival"></td>
+							<td></td>
+							<td><input type="number" id="skill-misc-survival"></td>
+						</tr>
+						<tr>
+							<td class="merge no-min"><input type="checkbox" id="skills-trained-swim"></td>
+							<td class="merge">Swim</td>
+							<td class="right-align">Str</td>
+							<td></td>
+							<td></td>
+							<td><input type="number" id="skill-ranks-swim"></td>
+							<td></td>
+							<td><input type="number" id="skill-misc-swim"></td>
+						</tr>
+						<tr>
+							<td class="merge no-min"><input type="checkbox" id="skills-trained-umd"></td>
+							<td class="merge">Use Magic Device</td>
+							<td class="right-align">Cha</td>
+							<td></td>
+							<td></td>
+							<td><input type="number" id="skill-ranks-umd"></td>
+							<td></td>
+							<td><input type="number" id="skill-misc-umd"></td>
+						</tr>
+					</tbody>
+				</table>
+			</section>
+			<section id="section-feats">
+				
+			</section>
+			<section id="section-misc">
+				<table id="speeds">
+					<thead>
+						<tr class="small">
+							<th>Speed</th>
+							<th>Base</th>
+							<th>Swim</th>
+							<th>Fly</th>
+							<th>Climb</th>
+							<th>Misc</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<td><input type="number" id="speed-speed"></td>
+							<td><input type="number" id="speed-base"></td>
+							<td><input type="number" id="speed-swim"></td>
+							<td><input type="number" id="speed-sly"></td>
+							<td><input type="number" id="speed-climb"></td>
+							<td><input type="number" id="speed-misc"></td>
+						</tr>
+					</tbody>
+				</table>
+				<table id="init" class="tinvis">
+					<tbody>
+						<tr>
+							<th>Init</th>
+							<td></td>
+							<td class="tinvis center-align"> = </td>
+							<td></td>
+							<td class="small twrap tinvis">Dex
+							Mod</td>
+							<td class="tinvis center-align"> + </td>
+							<td><input type="number" id="init-mod"></td>
+							<td class="small twrap tinvis">Misc
+							Mod</td>
+						</tr>
+					</tbody>
+				</table>
+			</section>
+			<section id="section-armor">
+				<table>
+					<thead>
+						<tr class="small">
+							<th class="fill-space">Armor Name & Description</th>
+							<th>AC Bonus</th>
+							<th>Max Dex</th>
+							<th>Spell Fail</th>
+							<th>Type</th>
+							<th>Weight</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<td><input type="text" id="armor-1-name"></td>
+							<td><input type="text" id="armor-1-ac"></td>
+							<td><input type="text" id="armor-1-max-dex"></td>
+							<td><input type="text" id="armor-1-spell"></td>
+							<td><input type="text" id="armor-1-type"></td>
+							<td><input type="text" id="armor-1-weight"></td>
+						</tr>
+						<tr>
+							<td><input type="text" id="armor-2-name"></td>
+							<td><input type="text" id="armor-2-ac"></td>
+							<td><input type="text" id="armor-2-max-dex"></td>
+							<td><input type="text" id="armor-2-spell"></td>
+							<td><input type="text" id="armor-2-type"></td>
+							<td><input type="text" id="armor-2-weight"></td>
+						</tr>
+					</tbody>
+				</table>
+			</section>
+			<section id="section-weapons">
+				<table>
+					<thead>
+						<tr class="small">
+							<th>Weapon Name & Description</th>
+							<th>Attack Modifiers</th>
+							<th>Damage</th>
+							<th>Critical</th>
+							<th>Range</th>
+							<th>Type</th>
+							<th>Ammon & Type</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<td><input type="text" id="weapon-1-name"></td>
+							<td><input type="text" id="weapon-1-atk"></td>
+							<td><input type="text" id="weapon-1-dmg"></td>
+							<td><input type="text" id="weapon-1-crit"></td>
+							<td><input type="text" id="weapon-1-range"></td>
+							<td><input type="text" id="weapon-1-type"></td>
+							<td><input type="text" id="weapon-1-ammo"></td>
+						</tr>
+						<tr>
+							<td><input type="text" id="weapon-2-name"></td>
+							<td><input type="text" id="weapon-2-atk"></td>
+							<td><input type="text" id="weapon-2-dmg"></td>
+							<td><input type="text" id="weapon-2-crit"></td>
+							<td><input type="text" id="weapon-2-range"></td>
+							<td><input type="text" id="weapon-2-type"></td>
+							<td><input type="text" id="weapon-2-ammo"></td>
+						</tr>
+						<tr>
+							<td><input type="text" id="weapon-3-name"></td>
+							<td><input type="text" id="weapon-3-atk"></td>
+							<td><input type="text" id="weapon-3-dmg"></td>
+							<td><input type="text" id="weapon-3-crit"></td>
+							<td><input type="text" id="weapon-3-range"></td>
+							<td><input type="text" id="weapon-3-type"></td>
+							<td><input type="text" id="weapon-3-ammo"></td>
+						</tr>
+					</tbody>
+				</table>
+			</section>
+		</div>
+	</main>
+	<footer>
+		<p>&copy;<span id="currentyear"></span> ⚛ Paul "Sam" Anguiano ⚛ Washington, USA</p>
+		<p id="lastModified"></p>
+	</footer>
+</body>
+</html>

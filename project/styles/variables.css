@@ -1,0 +1,27 @@
+:root {
+	--main-font: helvetica, arial, sans-serif;
+
+	--color-light-sand: #E3C096;
+	--color-dark-sand: #d09962;
+	--color-ink: #180f2e;
+	--color-leather: #af7050;
+	--color-charcoal: #121212;
+	--color-paper: #fff;
+	--color-print: #111;
+
+	--primary-background: var(--color-light-sand); 
+	--primary-foreground: var(--color-ink); 
+	--secondary-background: var(--color-dark-sand); 
+	--secondary-foreground: var(--color-ink); 
+	--tertiary-background: var(--color-leather); 
+	--tertiary-foreground: var(--color-charcoal); 
+	--paper-background: var(--color-paper); 
+	--paper-foreground: var(--color-print); 
+
+	--primary-border: var(--primary-foreground) solid 1px;
+	--secondary-border: var(--secondary-foreground) solid 1px;
+	--tertiary-border: var(--tertiary-foreground) solid 1px;
+	--paper-border: var(--paper-foreground) solid 2px;
+
+	--footer-size: 6rem;
+}
