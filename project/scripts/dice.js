@@ -248,7 +248,7 @@ function setLocalStorage() {
 }
 function getLocalStorage() {
 	diceData = {
-		currentDice: new Dice(),
+		currentDice: new Dice([new Die(1,20)]),
 		history: [],
 		favorites: [],
 		toggles: {}
@@ -524,6 +524,11 @@ function updateHistory() {
 
 		historySection.appendChild(wrapper);
 	});
+	if(diceData.history.length == 0) {
+		const noHistory = document.createElement("p");
+		noHistory.innerText = "You have no history yet! The results of the last 100 rolls you make will appear here.";
+		historySection.appendChild(noHistory);
+	}
 }
 
 const favoritesSection = document.getElementById("favorites");
@@ -574,6 +579,11 @@ function updateFavorites() {
 
 		favoritesSection.appendChild(wrapper);
 	});
+	if(diceData.favorites.length == 0) {
+		const noFavorites = document.createElement("p");
+		noFavorites.innerText = "You have no favorites yet! Click \"Add to Favorites\" to save dice here to use later.";
+		favoritesSection.appendChild(noFavorites);
+	}
 }
 
 getLocalStorage();

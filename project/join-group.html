@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" type="text/css" href="styles/variables.css">
+	<link rel="stylesheet" type="text/css" href="styles/forms.css">
+	<title>Mordan's Tools</title>
+	<meta name="description" content="name: Mordan's Tools, system: Pathfinder / 1st Edition / 1E / 1st Ed, content: [description of system, list of tools, character sheets]">
+	<meta name="author" content="Sam Anguiano">
+	<script defer src="../scripts/getdates.js"></script>
+	<script defer src="scripts/menu.js"></script>
+	<script defer src="scripts/join.js"></script>
+</head>
+<body>
+	<header>
+		<h1>Mordan's Tools</h1>
+		<button id="nav-button" aria-label="Navigation Menu, Closed"></button>
+		<nav>
+			<a href="./">Home</a>
+			<a href="./groups.html">Group Sign Up</a>
+			<a href="./dice.html">Dice Roller</a>
+		</nav>
+	</header>
+	<main>
+		<h2>Join a Group</h2>
+		<form action="join-thanks.html" method="GET">
+			<fieldset>
+				<legend>Your Information</legend>
+				<label>
+					Username<span class="required-mark"></span>
+					<input type="text" name="username" autocomplete="username" required>
+				</label>
+				<label>
+					Email<span class="required-mark"></span>
+					<input type="email" name="email" autocomplete="email" required>
+				</label>
+			</fieldset>
+			<input type="hidden" name="group-id" id="group-id" required>
+			<input type="hidden" name="group-name" id="group-name" required>
+			<input type="submit" id="submit" value="Join Group">
+		</form>
+	</main>
+	<footer>
+		<p>&copy;<span id="currentyear"></span> ⚛ Paul "Sam" Anguiano ⚛ Washington, USA</p>
+		<p id="lastModified"></p>
+	</footer>
+</body>
+</html>

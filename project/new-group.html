@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" type="text/css" href="styles/variables.css">
+	<link rel="stylesheet" type="text/css" href="styles/forms.css">
+	<title>Mordan's Tools</title>
+	<meta name="description" content="name: Mordan's Tools, system: Pathfinder / 1st Edition / 1E / 1st Ed, content: [description of system, list of tools, character sheets]">
+	<meta name="author" content="Sam Anguiano">
+	<script defer src="../scripts/getdates.js"></script>
+	<script defer src="scripts/menu.js"></script>
+</head>
+<body>
+	<header>
+		<h1>Mordan's Tools</h1>
+		<button id="nav-button" aria-label="Navigation Menu, Closed"></button>
+		<nav>
+			<a href="./">Home</a>
+			<a href="./groups.html">Group Sign Up</a>
+			<a href="./dice.html">Dice Roller</a>
+		</nav>
+	</header>
+	<main>
+		<h2>Create a Group</h2>
+		<form action="new-thanks.html" method="GET">
+			<fieldset>
+				<legend>Your Information</legend>
+				<label>
+					Username<span class="required-mark"></span>
+					<input type="text" name="username" autocomplete="username" required>
+				</label>
+				<label>
+					Email<span class="required-mark"></span>
+					<input type="email" name="email" autocomplete="email" required>
+				</label>
+			</fieldset>
+			<fieldset>
+				<legend>Group Information</legend>
+				<label>
+					Group Name<span class="required-mark"></span>
+					<input type="text" name="group-name" required>
+				</label>
+				<label>
+					Campaign<span class="required-mark"></span>
+					<input type="text" name="campaign" required>
+				</label>
+				<div>
+					System<span class="required-mark"></span>
+					<label><input type="radio" name="system" value="Pathfinder 1E" required> Pathfinder 1E</label>
+					<label><input type="radio" name="system" value="Pathfinder 2E" required> Pathfinder 2E</label>
+					<label><input type="radio" name="system" value="Starfinder" required> Starfinder</label>
+				</div>
+			</fieldset>
+			<fieldset>
+				<legend>Meeting Information</legend>
+				<label>
+					Meeting Time<span class="required-mark"></span>
+					<input type="text" name="meeting-time" required>
+				</label>
+				<div>
+					Meeting Type<span class="required-mark"></span>
+					<label><input type="radio" name="meeting-type" value="in-person" required> in-person</label>
+					<label><input type="radio" name="meeting-type" value="online" required> online</label>
+				</div>
+				<label>
+					Meeting Place<span class="required-mark"></span>
+					<input type="text" name="meeting-place" required>
+				</label>
+			</fieldset>
+			<input type="submit" value="Create Group">
+		</form>
+	</main>
+	<footer>
+		<p>&copy;<span id="currentyear"></span> ⚛ Paul "Sam" Anguiano ⚛ Washington, USA</p>
+		<p id="lastModified"></p>
+	</footer>
+</body>
+</html>
