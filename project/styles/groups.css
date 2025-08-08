@@ -84,8 +84,9 @@ main a {
 	color: var(--secondary-foreground);
 	padding: 0.5rem;
 	border-radius: 0.5rem;
-	font-size: 1em;
+	font-size: 14pt;
 	cursor: pointer;
+	font-weight: bold;
 }
 
 #create-group {
